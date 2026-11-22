@@ -80,7 +80,7 @@ Le site joue le rôle d'un poste d'analyse pour un étudiant, un analyste ou un 
 
 
 
-## 7. Limites
+## 4. Limites
 
 - Un polynôme d'interpolation de degré élevé est instable hors de la zone des nœuds : il sert à décrire la courbe passée, pas à prévoir.
 - Le nombre de points d'inflexion détectés dépend de la fenêtre de lissage.
