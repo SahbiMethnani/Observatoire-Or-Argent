@@ -20,8 +20,6 @@ def iter_blocks(doc):
             yield Paragraph(child, doc)
         elif child.tag == qn("w:tbl"):
             yield Table(child, doc)
-
-
 def images_html(run, doc):
     out = ""
     for blip in run._element.findall(".//" + qn("a:blip")):
