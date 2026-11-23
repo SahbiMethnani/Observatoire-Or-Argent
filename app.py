@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import streamlit as st
 from plotly.subplots import make_subplots
+from lire_analyse import display_docx
 
 from modules import theme
 from modules import data, numerics, stats
@@ -427,7 +428,6 @@ def tab_method():
         "Cette application est pédagogique et ne constitue pas un conseil financier."
     )
 
-
 metal, n_nodes, node_type, win = sidebar()
 df, sources = data.load_prices(10)
 
@@ -467,3 +467,4 @@ with tabs[4]:
     tab_derivatives(df, df1, nw, metal, win)
 with tabs[5]:
     tab_method()
+display_docx("rapport.docx")
