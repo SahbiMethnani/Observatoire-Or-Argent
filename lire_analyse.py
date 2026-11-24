@@ -9,6 +9,8 @@ from docx.oxml.ns import qn
 from docx.table import Table
 from docx.text.paragraph import Paragraph
 from docx.text.run import Run
+from generatereport import gen_rapport
+
 
 HEADING_RE = re.compile(r"^(heading|titre)\s*(\d)$")
 ALIGN = {0: "left", 1: "center", 2: "right", 3: "justify"}
@@ -155,7 +157,8 @@ CSS = """
   a{color:#0563c1;}
 </style>
 """
-
+from datetime import date
+from pathlib import Path
 
 def docx_to_html(file_path):
     doc = Document(file_path)
@@ -164,11 +167,31 @@ def docx_to_html(file_path):
         for b in iter_blocks(doc)
     )
     return CSS + body
+def rapport_a_jour(chemin: Path) -> bool:
+    if not chemin.exists():
+        return False 
+    modified = Document(str(chemin)).core_properties.modified 
+    return modified is not None and modified.date() == date.today()
 
 
 def display_docx(file_path):
+    f=Path(file_path).resolve()
+    if not rapport_a_jour(f):
+        gen_rapport()
+    else:
+        pass
+
     if st.button("Afficher le document méthodologique", key="display_methodological_doc"):
         st.session_state["show_methodo_doc"] = True
 
     if st.session_state.get("show_methodo_doc"):
         components.html(docx_to_html(file_path), height=800, scrolling=True)
+
+
+
+
+
+
+
+
+

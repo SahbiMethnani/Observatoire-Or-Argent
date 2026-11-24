@@ -467,4 +467,4 @@ with tabs[4]:
     tab_derivatives(df, df1, nw, metal, win)
 with tabs[5]:
     tab_method()
-#display_docx("rapport.docx")
+display_docx("rapport_or_argent.docx")
