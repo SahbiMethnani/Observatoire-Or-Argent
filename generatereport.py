@@ -435,6 +435,7 @@ def gen_rapport():
         f.write(data)
     print(f"Rapport généré : {args.output}")
 
+
 """
 if __name__ == "__main__":
     main()
