@@ -6,3 +6,4 @@ plotly>=5.18
 yfinance>=0.2.40
 python-docx>=1.2.0
 matplotlib>=3.11.2
+requests>=2.32.3
