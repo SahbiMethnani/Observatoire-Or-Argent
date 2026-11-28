@@ -1,7 +1,7 @@
 from docx import Document
 import datetime
 
-file_path = r"C:\Users\hp\Bureau\Gold-analyser\rapport_or_argent.docx"
+file_path = f"rapport_or_argent.docx"
 
 doc = Document(file_path)
 
